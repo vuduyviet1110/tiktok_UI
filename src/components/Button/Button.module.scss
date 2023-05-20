@@ -1,0 +1,60 @@
+.wrapper {
+  user-select: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 22px;
+  min-height: 36px;
+  font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+  border-radius: 4px;
+}
+.disabled {
+  color: rgba(255, 255, 255, 0.03);
+}
+//Style of the button
+.primary {
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(254, 44, 85, 1);
+  padding: 6px 8px;
+  margin-left: 16px;
+  font-weight: 700;
+}
+.outline {
+  border-style: solid;
+  border-radius: 4px;
+  color: rgba(254, 44, 85, 1);
+  border-color: rgba(254, 44, 85, 1);
+  background-color: rgba(255, 255, 255, 1);
+}
+.normalText {
+  background: rgba(255, 255, 255, 1);
+  border: 1px solid rgba(22, 24, 35, 0.12);
+  border-radius: 2px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 24px;
+  min-width: 110px;
+}
+.rounded {
+  font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  border-radius: 52px;
+  cursor: pointer;
+  border-style: solid;
+  border-color: rgba(22, 24, 35, 0.12);
+  background-color: rgba(255, 255, 255, 1);
+  border-width: 1px;
+}
+// Size of the button
+.large {
+  min-width: 208px;
+}
+.medium {
+  min-width: 164px;
+}
+.small {
+  min-width: 100px;
+}

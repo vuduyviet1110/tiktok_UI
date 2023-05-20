@@ -1,15 +1,16 @@
-import Header from './Header';
+import Header from '../SharedElement/Header';
 import SideBar from './SideBar';
-
+import { clsx } from 'clsx';
+import layoutCSS from './DefaultLayout.module.scss';
 function DefaultLayout({ children }) {
   return (
-    <>
+    <div className={clsx(layoutCSS.wrapper)}>
       <Header />
-      <div className="container">
+      <div className={clsx(layoutCSS.container)}>
         <SideBar />
-        <div className="content">{children}</div>
+        <div className={clsx(layoutCSS.content)}>{children}</div>
       </div>
-    </>
+    </div>
   );
 }
 

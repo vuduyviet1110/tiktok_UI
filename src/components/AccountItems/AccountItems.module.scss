@@ -1,0 +1,54 @@
+.wrapper {
+  align-items: center;
+  display: flex;
+  padding: 8px;
+  cursor: pointer;
+  &:hover {
+    background-color: rgb(22, 24, 35, 0.03);
+  }
+}
+.avatar {
+  width: 40px;
+  border-radius: 50%;
+  height: 40px;
+  object-fit: cover;
+  margin-right: 12px;
+}
+.info {
+  align-items: center;
+}
+.user {
+  display: flex;
+}
+.name {
+  color: rgb(22, 24, 35);
+  font-family: 'IBM Plex Sans', SofiaPro, Arial, Tahoma, PingFangSC, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  max-width: 260px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0 4px 0 0;
+}
+
+.name2 {
+  color: rgba(22, 24, 35, 0.75);
+  font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 15px;
+  max-width: 260px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+}
+.checkIcon {
+  color: rgb(32, 213, 236);
+  font-family: 'IBM Plex Sans', SofiaPro, Arial, Tahoma, PingFangSC, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 25px;
+}
