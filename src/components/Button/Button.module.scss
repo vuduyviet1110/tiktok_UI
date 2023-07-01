@@ -1,4 +1,6 @@
 .wrapper {
+  background-color: transparent;
+  width: 100%;
   user-select: none;
   cursor: pointer;
   font-size: 16px;
@@ -6,10 +8,11 @@
   min-height: 36px;
   font-family: 'IBM Plex Sans', ProximaNova, Arial, Tahoma, PingFangSC, sans-serif;
   border-radius: 4px;
+  .disabled {
+    color: rgba(255, 255, 255, 0.03);
+  }
 }
-.disabled {
-  color: rgba(255, 255, 255, 0.03);
-}
+
 //Style of the button
 .primary {
   color: rgba(255, 255, 255, 1);
@@ -31,7 +34,7 @@
   border-radius: 2px;
   font-weight: 500;
   font-style: normal;
-  line-height: 24px;
+  line-height: 20px;
   min-width: 110px;
 }
 .rounded {
@@ -57,4 +60,13 @@
 }
 .small {
   min-width: 100px;
+}
+// Icon
+.icon + .title,
+.title + .icon {
+  margin-left: 8px;
+}
+.icon {
+  display: inline-block;
+  width: 24px;
 }

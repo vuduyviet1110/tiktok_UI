@@ -1,20 +1,23 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './AccountItems.module.scss';
 import {} from '@fortawesome/free-regular-svg-icons';
-import ava from '@/assets/ava.jpg';
 import { faCircleCheck } from '@fortawesome/free-solid-svg-icons';
-function AccountItems() {
+import Img from '../Image';
+import { Link } from 'react-router-dom';
+function AccountItems({ data }) {
   return (
-    <div className={styles.wrapper}>
-      <img src={ava} className={styles.avatar} alt="Vitra.Vũ" />
+    <Link to={`/@${data.nickname}`} className={styles.wrapper}>
+      <Img src={data.avatar} className={styles.avatar} alt={data.full_name} />
       <div className={styles.info}>
         <span className={styles.user}>
-          <h3 className={styles.name}>Viet</h3>
-          <FontAwesomeIcon icon={faCircleCheck} className={styles.checkIcon} />
+          <h3 className={styles.name}>{data.full_name}</h3>
+
+          {data.tick && <FontAwesomeIcon icon={faCircleCheck} className={styles.checkIcon} />}
         </span>
-        <h5 className={styles.name2}>Vitra.Vu</h5>
+
+        <h5 className={styles.name2}>{data.nickname}</h5>
       </div>
-    </div>
+    </Link>
   );
 }
 

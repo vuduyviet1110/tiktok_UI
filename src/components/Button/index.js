@@ -15,6 +15,8 @@ function Button({
   customeClass,
   children,
   rounded,
+  leftIcon,
+  rightIcon,
   ...otherProps
 }) {
   let Component = 'button';
@@ -45,7 +47,9 @@ function Button({
   });
   return (
     <Component className={classes} {...props}>
-      <span>{children}</span>
+      {leftIcon && <span className={styles.icon}>{leftIcon}</span>}
+      <span className={styles.title}>{children}</span>
+      {rightIcon && <span className={styles.icon}>{rightIcon}</span>}
     </Component>
   );
 }

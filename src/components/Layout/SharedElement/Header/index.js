@@ -1,21 +1,104 @@
-import { useEffect, useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
+import { faMessage } from '@fortawesome/free-regular-svg-icons';
 import styles from './Header.module.scss';
+import Tippy from '@tippyjs/react';
 import clsx from 'clsx';
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Tooltip from 'react-bootstrap/Tooltip';
-import { faAdd, faEllipsisVertical, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import PopperSearch from '@/components/PopperSearch/Wrapper';
-import AccountItems from '@/components/AccountItems';
+import ava from '@/assets/image/ava.jpg';
+import 'tippy.js/dist/tippy.css';
+import { faEllipsisVertical, faLocationArrow, faPlus } from '@fortawesome/free-solid-svg-icons';
 import Button from '@/components/Button';
+import Menu from '@/components/PopperSearch/Menu';
+import { faCircleQuestion, faKeyboard, faSquare } from '@fortawesome/free-regular-svg-icons';
+import { faThemeco, faTiktok } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBookBookmark, faGear, faRightFromBracket, faUser } from '@fortawesome/free-solid-svg-icons';
+import Form from 'react-bootstrap/Form';
+import Img from '@/components/Image';
+import Search from '@/components/Search';
+const menuItems = [
+  {
+    icon: <FontAwesomeIcon icon={faSquare} />,
+    title: 'Language',
+    children: {
+      title: 'Language',
+      data: [
+        {
+          code: 'Vie',
+          title: 'Viet Nam',
+        },
+        {
+          code: 'Eng',
+          title: 'English',
+        },
+        {
+          code: 'De',
+          title: 'German',
+        },
+        {
+          code: 'Ru',
+          title: 'Russian',
+        },
+      ],
+    },
+  },
+  {
+    icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+    title: 'Feedback and help',
+    to: './feedbackAndHelp',
+  },
+  {
+    icon: <FontAwesomeIcon icon={faKeyboard} />,
+    title: 'Keyboard',
+  },
+  {
+    icon: <FontAwesomeIcon icon={faThemeco} />,
+    title: 'Theme',
+    button: (
+      <Form>
+        <Form.Check // prettier-ignore
+          type="switch"
+          id="custom-switch"
+        />
+      </Form>
+    ),
+  },
+];
+const UserMenu = [
+  {
+    icon: <FontAwesomeIcon icon={faUser} />,
+    title: 'Profile',
+    to: './Viet',
+  },
+  {
+    icon: <FontAwesomeIcon icon={faBookBookmark} />,
+    title: 'Favourite',
+    to: './favourite',
+  },
+  {
+    icon: <FontAwesomeIcon icon={faTiktok} />,
+    title: 'Get Coin',
+    to: './Coin',
+  },
+  {
+    icon: <FontAwesomeIcon icon={faGear} />,
+    title: 'Setting',
+    to: './settings',
+  },
+  ...menuItems,
+
+  {
+    icon: <FontAwesomeIcon icon={faRightFromBracket} />,
+    title: 'Log out',
+    to: './logout',
+    separator: true,
+  },
+];
 function Header() {
-  const [SearchResult, setSearchResult] = useState([]);
-  useEffect(() => {
-    setInterval(() => {
-      setSearchResult([12, 23]);
-    }, 3000);
-  }, []);
+  // func
+  const HandleChange = (item) => {
+    console.log(item);
+  };
+  const current_User = false;
+
   return (
     <div className={clsx(styles.header)}>
       <div className={styles.inner}>
@@ -55,50 +138,47 @@ function Header() {
             ></path>
           </svg>
         </div>
-        <OverlayTrigger
-          show={SearchResult.length > 0}
-          placement="bottom"
-          overlay={
-            <Tooltip bsPrefix="none" className={styles.tooltip}>
-              <PopperSearch>
-                <h3 className={styles.title}>You may like</h3>
-                <AccountItems />
-                <AccountItems />
-                <AccountItems />
-                <AccountItems />
-                <AccountItems />
-              </PopperSearch>
-            </Tooltip>
-          }
-        >
-          <div className={styles.search}>
-            <input placeholder="Search" spellCheck={true} />
 
-            <button className={styles.search_clear}>
-              <FontAwesomeIcon icon={faCircleXmark} />
-            </button>
+        {/*Search */}
+        <Search />
 
-            <div className={styles.search_loadings}>
-              <FontAwesomeIcon icon={faSpinner}></FontAwesomeIcon>
-            </div>
-
-            <button className={styles.search_manify}>
-              <FontAwesomeIcon icon={faMagnifyingGlass} />
-            </button>
-          </div>
-        </OverlayTrigger>
-
+        {/*Search*/}
         <div className={styles.actions}>
-          <Button normalText>
-            <FontAwesomeIcon icon={faAdd}></FontAwesomeIcon>
-            <span className={styles.UpLoad_icon}>Up Load</span>
-          </Button>
-          <Button rounded customeClass={styles.customeClass}>
-            Log In
-          </Button>
-          <div className={styles.options}>
-            <FontAwesomeIcon icon={faEllipsisVertical}></FontAwesomeIcon>
-          </div>
+          {current_User ? (
+            <>
+              <Button normalText customeClass={styles.UserupLoad} leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+                Up Load
+              </Button>
+
+              <Tippy content="Message" placement="bottom">
+                <button className={styles.Menu_message}>
+                  <FontAwesomeIcon icon={faLocationArrow} />
+                </button>
+              </Tippy>
+
+              <Tippy content=" Inbox">
+                <button className={styles.Menu_inbox}>
+                  <FontAwesomeIcon icon={faMessage} />
+                </button>
+              </Tippy>
+            </>
+          ) : (
+            <>
+              <Button normalText>Upload</Button>
+              <Button primary small>
+                Log In
+              </Button>
+            </>
+          )}
+          <Menu onChange={HandleChange} items={current_User ? UserMenu : menuItems}>
+            <div className={styles.options}>
+              {current_User ? (
+                <Img src={ava} alt="user" className={styles.ava}></Img>
+              ) : (
+                <FontAwesomeIcon icon={faEllipsisVertical}></FontAwesomeIcon>
+              )}
+            </div>
+          </Menu>
         </div>
       </div>
     </div>

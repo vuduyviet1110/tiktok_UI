@@ -1,0 +1,45 @@
+//wapper
+.container {
+  background-color: transparent;
+  min-width: 223px;
+  position: relative;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+
+  .items_poper {
+    padding: 7px 0;
+    color: black;
+  }
+  .menu_item {
+    background-color: transparent;
+    text-align: start;
+    text-decoration: none;
+    padding: 8px 0 8px 16px;
+    color: black;
+  }
+}
+.menu_item {
+  display: inline-block;
+  width: 100%;
+  font-weight: 500;
+  font-size: 16px;
+  &:hover {
+    background-color: rgb(233, 230, 230);
+    color: black;
+  }
+}
+.ThemeBtn {
+  display: flex;
+  &:hover {
+    background-color: rgb(233, 230, 230);
+    color: black;
+  }
+}
+.FormSwitchBtn {
+  align-self: center;
+  font-size: 21px;
+}
+.separator {
+  border-top: 1px solid rgb(234, 228, 228);
+}

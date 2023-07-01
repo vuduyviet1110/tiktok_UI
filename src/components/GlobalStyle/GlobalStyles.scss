@@ -29,3 +29,23 @@ input,
 a[href] {
   color: var(--text-color);
 }
+// tippy
+body .tippy-content {
+  background-color: rgb(84 84 84 / 92%);
+  text-align: left;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 22px;
+  background-color: rgba(84, 84, 84, 0.92);
+  color: rgb(255, 255, 255);
+  padding: 8px;
+}
+.tippy-arrow {
+}
+// loading
+.spinner-border {
+  width: 15px;
+  height: 15px;
+}
