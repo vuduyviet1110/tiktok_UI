@@ -1,0 +1,40 @@
+//Menu
+.container {
+  padding: 20px 0 8px;
+}
+
+//MenuItems
+.wrapper {
+  display: flex;
+  text-decoration: none;
+  color: black;
+  padding: 8px 0 8px;
+  align-items: center;
+  font-weight: 600;
+  transition: background-color ease-in-out 200ms;
+  border-radius: 4px;
+
+  &.active {
+    color: var(--primary) !important;
+    .icon {
+      display: none;
+    }
+    .Activeicon {
+      display: block;
+    }
+  }
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+    color: black;
+  }
+}
+
+.icon {
+  display: block;
+}
+.Activeicon {
+  display: none;
+}
+.title {
+  margin: 0 0 0 8px;
+}

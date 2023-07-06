@@ -28,21 +28,26 @@ function Menu({ children, onChange, items = [] }) {
   };
   return (
     <TippyHeadless
-      delay={[]}
+      hideOnClick="false"
+      delay={[0, 700]}
+      offset={[12, 10]}
       interactive
       placement="bottom-end"
+      onHide={() => setHistory((prev) => prev.slice(0, 1))}
       render={(attrs) => (
         <div className={styles.container} tabIndex="-1" {...attrs}>
           <PoperSearch ClassName={styles.items_poper}>
             {History.length > 1 && (
               <SubMenuItemHeader
                 title="Language"
+                // xóa phần tử cuối trong array
                 onBackClick={() => {
+                  //Mảng này sẽ trả về các phần tử từ 0 đến gần cuối
                   setHistory((prev) => prev.slice(0, prev.length - 1));
                 }}
               />
             )}
-            {renderItems()}
+            <div className={styles.allItems}>{renderItems()}</div>
           </PoperSearch>
         </div>
       )}

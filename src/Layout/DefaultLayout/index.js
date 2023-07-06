@@ -1,5 +1,5 @@
 import Header from '../SharedElement/Header';
-import SideBar from './SideBar';
+import SideBar from './SideBar/index';
 import { clsx } from 'clsx';
 import layoutCSS from './DefaultLayout.module.scss';
 function DefaultLayout({ children }) {

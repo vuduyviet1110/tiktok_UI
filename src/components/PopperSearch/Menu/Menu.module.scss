@@ -11,6 +11,7 @@
     padding: 7px 0;
     color: black;
   }
+
   .menu_item {
     background-color: transparent;
     text-align: start;
@@ -18,6 +19,9 @@
     padding: 8px 0 8px 16px;
     color: black;
   }
+}
+.allItems {
+  overflow-y: auto;
 }
 .menu_item {
   display: inline-block;

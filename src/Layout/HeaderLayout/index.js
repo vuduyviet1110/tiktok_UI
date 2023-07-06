@@ -1,4 +1,4 @@
-import Header from '@/components/Layout/SharedElement/Header';
+import Header from '@/Layout/HeaderLayout';
 function HeaderLayout({ children }) {
   return (
     <>

@@ -1,7 +1,7 @@
 // Đáng nhẽ phải import ./Todo/index.js nhưng mà webpack sẽ dò tìm trong thư mục nếu có index lấy luôn
 import { PublicRoutes } from './Route/index.js';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import DefaultLayout from '@/components/Layout/DefaultLayout';
+import DefaultLayout from '@/Layout/DefaultLayout';
 import { Fragment } from 'react';
 function App() {
   return (

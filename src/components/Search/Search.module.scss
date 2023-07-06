@@ -13,6 +13,7 @@
   border-radius: 92px;
   display: flex;
   input {
+    margin-right: 34px;
     background-color: transparent;
     font-size: 14px;
     padding: 11px 10px;
@@ -21,6 +22,9 @@
     &:not(:placeholder-shown) ~ .search_manify {
       color: rgb(59, 60, 59);
     }
+  }
+  .ClearNLoading {
+    margin-left: 4px;
   }
   .search_clear,
   .search_loadings {
@@ -32,7 +36,6 @@
     transform: translateY(-50%);
     right: 68px;
   }
-
   .search_manify {
     width: 52px;
     line-height: 100%;

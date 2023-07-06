@@ -10,7 +10,7 @@ import { useRef, useState, useEffect } from 'react';
 import HeadlessTippy from '@tippyjs/react/headless';
 import Spinner from 'react-bootstrap/Spinner';
 import useDebounce from '../hooks';
-import * as APISearch from '@/apiService/searchService';
+import * as APISearch from '@/Service/searchService';
 function Search() {
   const input_ref = useRef();
   const [SearchValue, setSearchValue] = useState('');
@@ -18,6 +18,12 @@ function Search() {
   const [ShowResult, setShowResult] = useState(true);
   const [loading, setLoading] = useState(false);
   const debounced = useDebounce(SearchValue, 1000);
+  const HandleSearch = (e) => {
+    const inputValue = e.target.value;
+    if (!inputValue.startsWith(' ')) {
+      setSearchValue(inputValue);
+    }
+  };
   useEffect(() => {
     if (!debounced.trim()) {
       setSearchResult([]);
@@ -58,10 +64,9 @@ function Search() {
           value={SearchValue}
           placeholder="Search"
           spellCheck={false}
-          onChange={(e) => setSearchValue(e.target.value)}
+          onChange={HandleSearch}
           onFocus={() => setShowResult(true)}
         />
-
         {!!SearchValue && !loading && (
           <button
             className={styles.search_clear}
@@ -80,9 +85,8 @@ function Search() {
             <Spinner animation="border" size="2px" />
           </div>
         )}
-
         <Tippy content="Tìm kiếm">
-          <button className={styles.search_manify}>
+          <button className={styles.search_manify} onMouseDown={(e) => e.preventDefault()}>
             <FontAwesomeIcon icon={faMagnifyingGlass} />
           </button>
         </Tippy>

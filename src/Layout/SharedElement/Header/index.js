@@ -14,6 +14,8 @@ import { faBookBookmark, faGear, faRightFromBracket, faUser } from '@fortawesome
 import Form from 'react-bootstrap/Form';
 import Img from '@/components/Image';
 import Search from '@/components/Search';
+import { Link } from 'react-router-dom';
+import { Config } from '@/Config';
 const menuItems = [
   {
     icon: <FontAwesomeIcon icon={faSquare} />,
@@ -21,6 +23,38 @@ const menuItems = [
     children: {
       title: 'Language',
       data: [
+        {
+          code: 'Vie',
+          title: 'Viet Nam',
+        },
+        {
+          code: 'Eng',
+          title: 'English',
+        },
+        {
+          code: 'De',
+          title: 'German',
+        },
+        {
+          code: 'Ru',
+          title: 'Russian',
+        },
+        {
+          code: 'Vie',
+          title: 'Viet Nam',
+        },
+        {
+          code: 'Eng',
+          title: 'English',
+        },
+        {
+          code: 'De',
+          title: 'German',
+        },
+        {
+          code: 'Ru',
+          title: 'Russian',
+        },
         {
           code: 'Vie',
           title: 'Viet Nam',
@@ -97,12 +131,12 @@ function Header() {
   const HandleChange = (item) => {
     console.log(item);
   };
-  const current_User = false;
+  const current_User = true;
 
   return (
     <div className={clsx(styles.header)}>
       <div className={styles.inner}>
-        <div className={styles.logo}>
+        <Link to={Config.Routes.Home} className={styles.logo}>
           <svg width="118" height="60" fill="currentColor" alt="TikTok">
             <path
               fill="#25F4EE"
@@ -137,12 +171,12 @@ function Header() {
               d="M91.58 28.887a3.94 3.94 0 0 1-3.94-3.945 3.94 3.94 0 1 1 7.882 0c0 2.18-1.77 3.945-3.942 3.945Zm0-12.058c-4.477 0-8.106 3.631-8.106 8.113 0 4.482 3.629 8.113 8.106 8.113 4.478 0 8.106-3.631 8.106-8.113 0-4.482-3.628-8.113-8.106-8.113Z"
             ></path>
           </svg>
-        </div>
+        </Link>
 
         {/*Search */}
         <Search />
-
         {/*Search*/}
+
         <div className={styles.actions}>
           {current_User ? (
             <>

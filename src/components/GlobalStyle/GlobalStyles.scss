@@ -49,3 +49,14 @@ body .tippy-content {
   width: 15px;
   height: 15px;
 }
+
+//switches
+.form-switch {
+  .form-check-input {
+    height: 1.2em;
+  }
+}
+.form-check-input:checked {
+  background-color: rgb(11, 224, 155) !important;
+  border-color: rgb(11, 224, 155) !important;
+}

@@ -1,8 +1,23 @@
 .wrapper {
+  overflow-y: overlay;
   background: rgb(255, 255, 255);
   box-shadow: rgba(0, 0, 0, 0.12) 0px 2px 12px;
   border-style: none;
   border-radius: 5px;
   width: 100%;
   max-height: min((100vh - 96px) - 60px, 734px);
+  display: flex;
+  flex-direction: column;
+}
+html *::-webkit-scrollbar {
+  border-radius: 0;
+  width: 8px;
+}
+html *::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(22, 24, 35, 0.06);
+}
+html *::-webkit-scrollbar-track {
+  border-radius: 0;
+  background-color: rgba(0, 0, 0, 0);
 }
